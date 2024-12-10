@@ -2,7 +2,7 @@
 import Inputs from '../components/Inputs.vue'
 import Submit from '../components/Submit.vue'
 
-import { useFirebase } from '../firebase/fbServices'
+import { useFirebase } from '../services/auth.services'
 
 import { ref } from 'vue'
 

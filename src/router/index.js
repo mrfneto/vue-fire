@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from './routes'
-import { useAuthStore } from '../stores/auth.store'
+import { useStore } from '../stores'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,7 +12,7 @@ router.beforeEach(async (to, from, next) => {
 
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   const requiresUnauth = to.matched.some(record => record.meta.requiresUnauth)
-  const store = useAuthStore()
+  const store = useStore()
   const isAutenticated = await store.getCurrentUser()
 
   if (requiresAuth && !isAutenticated) next({ name: 'login' })

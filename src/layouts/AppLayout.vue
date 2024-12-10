@@ -3,8 +3,10 @@ import Dropdown from '../components/Dropdown.vue'
 import Icon from '../components/Icon.vue'
 import Logo from '../components/Logo.vue'
 
-import { useFirebase } from '../firebase/fbServices'
-import { authStore } from '../stores'
+import { useFirebase } from '../services/auth.services'
+import { useStore } from '../stores'
+
+const store = useStore()
 
 const { logout } = useFirebase()
 
@@ -36,9 +38,9 @@ const links = [{ label: 'Home', to: 'home' }]
             <template #content>
               <div class="px-4">
                 <p class="mb-1 font-medium">
-                  {{ authStore.user?.displayName }}
+                  {{ store.user?.displayName }}
                 </p>
-                <p class="muted mb-2 -mt-2">{{ authStore.user?.email }}</p>
+                <p class="muted mb-2 -mt-2">{{ store.user?.email }}</p>
               </div>
               <div class="md:hidden">
                 <hr />

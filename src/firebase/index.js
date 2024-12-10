@@ -26,13 +26,4 @@ const db = getFirestore(app)
 const storage = getStorage(app)
 auth.languageCode = 'pt'
 
-export {
-  auth,
-  db,
-  storage,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-}
+export { auth, db, storage }

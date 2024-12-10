@@ -3,7 +3,7 @@ import Inputs from '../components/Inputs.vue'
 import Submit from '../components/Submit.vue'
 
 import { ref } from 'vue'
-import { useFirebase } from '../firebase/fbServices'
+import { useFirebase } from '../services/auth.services'
 
 const { error, loading, login } = useFirebase()
 
