@@ -10,7 +10,7 @@ const store = useStore()
 
 const { logout } = useFirebase()
 
-const links = [{ label: 'Home', to: 'home' }]
+const links = [{ label: 'Home', to: 'home', icon: 'Home' }]
 </script>
 <template>
   <div class="min-h-screen flex flex-col">
@@ -52,6 +52,16 @@ const links = [{ label: 'Home', to: 'home' }]
                   {{ link.label }}
                 </RouterLink>
               </div>
+              <hr />
+              <RouterLink
+                class="btn btn-menu"
+                v-for="(link, index) in links"
+                :key="index"
+                :to="{ name: link.to }"
+              >
+                <Icon :name="link.icon" class="size-5 mr-2" />
+                <span>{{ link.label }}</span>
+              </RouterLink>
               <hr />
               <button class="btn btn-menu" @click="logout">
                 <Icon name="LogOut" class="size-5 mr-2" />
